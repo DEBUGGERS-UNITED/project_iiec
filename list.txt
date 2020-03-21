@@ -1,1 +1,1 @@
-test file
+this file is to store list of all commands in rhel 8
