@@ -1,4 +1,3 @@
-this file is to store list of all commands in rhel 8
 All Linux Commands Discussed by Vimal Sir till date
 Linux
 which
