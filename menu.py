@@ -1,35 +1,64 @@
 import os
-os.system("clear")
-os.system("tput setaf 1")
-print("\t\t\tWelcome to Terminal User Interface(TUI)")
-print("\t\t\t---------------------------------------")
-print("\t\t\t\tTUI makes your life easier.")
-os.system("tput setaf 7")
-while True:
-	print("""PRESS 1:To see date
-PRESS 2:To see calendar
-PRESS 3:To create new user
-PRESS 4:To see network configurations
-PRESS 5:To exit""")
+
+def default():
+	os.system("clear")
+	os.system("tput setaf 1")
+	print("\t\t\tWelcome to Terminal User Interface(TUI)")
+	print("\t\t\t---------------------------------------")
+	print("\t\t\t\tTUI makes your life easier.")
+	os.system("tput setaf 7")
+
+def home_screen():
+	default()
 	print("")
-	print("Enter your choice: ",end="")
-	ch=input()
-	c=int(ch)
-	if c==1:
-		os.system("date")
-		print("")
-	elif c==2:
-		os.system("cal")
-		print("")
-	elif c==3:
-		username=input("Enter a username: ",end='')
-		os.system("useradd {}".format(username))
-		print("")
-	elif c==4:
-		os.system("ifconfig")
-		print("")
-	elif c==5:
-		break
+	print("""PRESS 1: RHEL ESSENTIALS\t\tPRESS 2: FILE AND PACKAGE MANAGEMENT
+PRESS 3: NETWORK AND SECURITY\t\tPRESS 4: DOCKER SERVICES
+PRESS 5: OTHER SERVICES\t\t\tPRESS 0: EXIT""")
+	print("")
+	print("ENTER CHOICE: ",end='')
+	ch=int(input())
+	print("\nYour Choice: ",ch)
+	if ch==1:
+		rhel_essentials()
+	elif ch==2:
+		file_manager()
+	elif ch==3:
+		network()
+	elif ch==4:
+		docker()
+	elif ch==5:
+		other()
+	elif ch==0:
+		print("THANKS FOR USING OUR SERVICES!!")
 	else:
-		print("Invalid Choice! Try again.")
-		print("")
+		print("INVALID CHOICE!! TRY AGAIN!!")
+		home_screen()
+
+def rhel_essentials():
+	#write your code here
+	print("rhel_essentials")
+
+def file_manager():
+	#write your code here
+	print("file and package manager")
+
+def network():
+	#write your code here
+	print("network and security")
+
+def docker():
+	#write your code here
+	print("docker services")
+		
+
+def other():
+	#write your code here
+	print("other services")
+		
+			
+#code for test run
+home_screen()	
+		
+	
+		
+
