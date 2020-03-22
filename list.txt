@@ -1,1 +1,59 @@
 this file is to store list of all commands in rhel 8
+All Linux Commands Discussed by Vimal Sir till date
+Linux
+which
+gedit
+date
+cal
+echo
+espeak -ng
+watch
+sleep
+fg
+nslookup
+bc
+gnome-terminal
+ps -aux
+kill
+mkdir
+cat
+useradd
+passwd
+whoami
+startx
+chvt
+tty
+tput setaf 0-7
+tput setab 0-7
+bash
+tr
+rpm
+wc
+ls
+grep
+ssh
+scp
+yum
+dnf
+wget
+systemctl start/stop/enable/disable/restart
+netstal
+getenforce
+setenforce
+nmap
+vi
+vim
+xclip
+ifconfig
+Docker
+docker ps
+docker run
+free -m
+lscpu
+docker rm
+docker inspect
+docker network
+netstat -tnlp
+docker login
+docker push
+docker commit
