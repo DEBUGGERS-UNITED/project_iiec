@@ -33,6 +33,18 @@ PRESS 5: OTHER SERVICES\t\t\tPRESS 0: EXIT""")
 	else:
 		print("INVALID CHOICE!! TRY AGAIN!!")
 		home_screen()
+		
+		
+#the yum_config aims to configure the repo file required for installation of a software using yum		
+def yum_config():
+    os.system('cp hello.repo /etc/yum.repos.d/')
+
+# the yum install will install any software whose name is passed to it
+def yum_install(software):
+    os.system('yum install {}'.format(software))
+
+
+
 
 def rhel_essentials():
 	#write your code here
