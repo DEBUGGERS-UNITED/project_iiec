@@ -2,7 +2,7 @@
 
 <p style='font-size:25px'>Project for IIEC RISE 1.0</p><br/>
 
-<p style='font-size:20px'>The main motive behind this project is to create a terminal user interface(TUI) for various corporate uses.</p><br/>
+<p style='font-size:20px'>The main motive behind this project is to create a terminal user interface(TUI) for various corporate users.</p><br/>
 
 <p style='font-size:20px'>A TUI is basically a middle ground between GUI and CLI where we help users to run shell commands from a terminal interface.This makes the life of RHEL users very easy as they dont need to remember lot of commands in order to get their job done.</p><br/>
 
