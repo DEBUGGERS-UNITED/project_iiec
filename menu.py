@@ -41,7 +41,7 @@ def yum_config():
 
 # the yum install will install any software whose name is passed to it
 def yum_install(software):
-    os.system('yum install {}'.format(software))
+    os.system('su -c "yum install {}"'.format(software))
 
 
 #function to check internet connection
