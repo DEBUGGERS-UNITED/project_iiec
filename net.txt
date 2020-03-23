@@ -1,0 +1,8 @@
+PING google.com (172.217.167.174) 56(84) bytes of data.
+64 bytes from bom12s01-in-f14.1e100.net (172.217.167.174): icmp_seq=1 ttl=55 time=41.4 ms
+64 bytes from bom12s01-in-f14.1e100.net (172.217.167.174): icmp_seq=2 ttl=55 time=40.5 ms
+64 bytes from bom12s01-in-f14.1e100.net (172.217.167.174): icmp_seq=3 ttl=55 time=41.6 ms
+
+--- google.com ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 8ms
+rtt min/avg/max/mdev = 40.468/41.166/41.642/0.530 ms

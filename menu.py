@@ -44,6 +44,25 @@ def yum_install(software):
     os.system('yum install {}'.format(software))
 
 
+#function to check internet connection
+#this function stores the output of ping cmd in a file net.txt and if the ouput is a single line then no interent and if more than one line then internet is working. The fuction returns a boolean that is True if net is working and False if not working.
+def net_connect():
+	os.system("ping -c 3 google.com > net.txt 2> net.txt")
+	f=open("net.txt","r")
+	count=0
+	for line in f:
+		count=count+1
+	if count>1:
+		return True
+	elif count==1:
+		return False
+	else:
+		print("error try gain")
+		
+	f.close()
+	os.system("rm -f net.txt")
+
+
 
 
 def rhel_essentials():
@@ -69,7 +88,10 @@ def other():
 		
 			
 #code for test run
-home_screen()	
+if net_connect():
+	print("internet working")
+else:
+	print("internet not working")	
 		
 	
 		
