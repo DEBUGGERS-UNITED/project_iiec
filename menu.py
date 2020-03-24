@@ -1,6 +1,7 @@
 import os
 import os.path
 import socket
+import sys
 
 def default():
 	os.system("clear")
@@ -13,6 +14,10 @@ def default():
 def home_screen():
 	default()
 	print("")
+	os.system("tput setaf 5")
+	print("\t\tHOME SCREEN")
+	print("\t\t-----------")
+	os.system("tput setaf 7")
 	print("""PRESS 1: RHEL ESSENTIALS\t\tPRESS 2: FILE AND PACKAGE MANAGEMENT
 PRESS 3: NETWORK AND SECURITY\t\tPRESS 4: DOCKER SERVICES
 PRESS 5: OTHER SERVICES\t\t\tPRESS 0: EXIT""")
@@ -32,6 +37,7 @@ PRESS 5: OTHER SERVICES\t\t\tPRESS 0: EXIT""")
 		other()
 	elif ch==0:
 		print("THANKS FOR USING OUR SERVICES!!")
+		sys.exit()
 	else:
 		print("INVALID CHOICE!! TRY AGAIN!!")
 		home_screen()
@@ -43,7 +49,7 @@ def network():
 	print("\t----------------")
 	os.system("tput setaf 7")
 	print("")
-	print("PRESS 1: Create new web server\t\t\tPRESS 2: Configure existing web server")
+	print("PRESS 1: Create new web server\t\t\tPRESS 2: Configure existing web server\nPRESS 3: To see IP\t\t\t\tPRESS 4: To go back to home screen")
 	print("\nEnter Choice: ",end='')
 	ch=int(input())
 	if ch==1:
@@ -52,6 +58,15 @@ def network():
 	elif ch==2:
 		file_add()
 		personalised_link()
+		home_screen()
+	elif ch==3:
+		print(get_ip())
+		while True:
+			print("Press y to continue: ",end='')
+			ch2=input()
+			if ch2=='y' or ch2=='Y':
+				network()
+	elif ch==4:
 		home_screen()
 	else:
 		while True:
@@ -118,22 +133,22 @@ def file_add():
 	else:
 		os.system("cp {} /var/www/html/".format(web))
 		print("File added successfully!!")
-		print("Do you wish to add more files:If yes,enter 1 else enter any other key to exit")
+		print("Do you wish to add more files:If yes,enter 1 else enter 0 to go back to home screen: ",end='')
 		inp=int(input())
 		if inp==1:
 			file_add()
 
 def get_ip():
 	hostname=socket.gethostname()
-	IP=socket.gethostbyname(hostname)
-	return IP
+	ip_addr=socket.gethostbyname(hostname)
+	return ip_addr
 
 def personalised_link():
 	print("")
-	print("Enter file name: ",end="")
+	print("Enter file name of your webpage: ",end="")
 	web=input()
-	IP=get_ip()
-	os.system("curl http://{}/{}".format(IP,web))
+	ip_add=get_ip()
+	os.system("curl http://{}/{}".format(ip_add,web))
 	while True:
 		print("\nDo you wish to see more web files?(yes/no): ",end='')
 		ch=input()
