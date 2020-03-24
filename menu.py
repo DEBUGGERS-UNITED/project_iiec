@@ -48,8 +48,11 @@ def network():
 	ch=int(input())
 	if ch==1:
 		create_web_server()
+		home_screen()
 	elif ch==2:
 		file_add()
+		personalised_link()
+		home_screen()
 	else:
 		while True:
 			print("Invalid Choice!!Try Again")
