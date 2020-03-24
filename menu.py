@@ -68,23 +68,24 @@ if net_connect():
 	print("internet working")
 else:
 	print("internet not working")	
-	
-default()
-print('''\tWHAT DO YOU WANT TO DO?
-\t1. Set up Web server''')
 
-take = int(input("\nEnter your choice: "))
+if __name__ == '__main__':
+	default()
+	print('''\tWHAT DO YOU WANT TO DO?
+	\t1. Set up Web server''')
+
+	take = int(input("\nEnter your choice: "))
 	
-if take is 1:
-	if net_connect():
-		if mount_check():
-			yum_config()
-			yum_install('httpd')
-			print('Enabling web server will require root password. Enter below.\n')
-			os.system('su -c "systemctl enabling httpd"')
-			file_add()
-			print("Web server configured successfully at port 80\n")
-			take1 = input('Do you want to check your website?(y/n)')
-			if take1 is 'y':
-				personalised_link()
+	if take is 1:
+		if net_connect():
+			if mount_check():
+				yum_config()
+				yum_install('httpd')
+				print('Enabling web server will require root password. Enter below.\n')
+				os.system('su -c "systemctl enable httpd"')
+				file_add()
+				print("Web server configured successfully at port 80\n")
+				take1 = input('Do you want to check your website?(y/n)')
+				if take1 is 'y':
+					personalised_link()
 			
