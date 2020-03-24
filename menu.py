@@ -1,4 +1,5 @@
 import os
+import os.path
 
 def default():
 	os.system("clear")
@@ -88,4 +89,22 @@ if __name__ == '__main__':
 				take1 = input('Do you want to check your website?(y/n)')
 				if take1 is 'y':
 					personalised_link()
+					
+#Addition of web files					
+def file_add():
+	print("Enter complete location of your web file here:")
+	web=input()
+	val=os.path.isfile("{}".format(web))
+	if val==False:
+		print("Wrong Location")
+		print("Please enter proper location!!")
+		print("------------------------------")
+		file_add()
+	else:
+		os.system("cp {} /var/www/html/".format(web))
+		print("File added successfully!!")
+		print("Do you wish to add more files:If yes,enter 1 else enter any other key to exit")
+		inp=int(input())
+		if inp==1:
+			file_add()
 			
