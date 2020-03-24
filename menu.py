@@ -1,5 +1,6 @@
 import os
 import os.path
+import socket
 
 def default():
 	os.system("clear")
@@ -34,6 +35,30 @@ PRESS 5: OTHER SERVICES\t\t\tPRESS 0: EXIT""")
 	else:
 		print("INVALID CHOICE!! TRY AGAIN!!")
 		home_screen()
+
+def network():
+	default()
+	os.system("tput setaf 5")
+	print("\tNETWORK SERVICES")
+	print("\t----------------")
+	os.system("tput setaf 7")
+	print("")
+	print("PRESS 1: Create new web server\t\t\tPRESS 2: Configure existing web server")
+	print("\nEnter Choice: ",end='')
+	ch=int(input())
+	if ch==1:
+		create_web_server()
+	elif ch==2:
+		file_add()
+	else:
+		while True:
+			print("Invalid Choice!!Try Again")
+			print("\nPress y to continue: ",end="")
+			x=input()
+			if x=='y':
+				network()
+		
+		
 		
 		
 #the yum_config aims to configure the repo file required for installation of a software using yum		
@@ -62,17 +87,11 @@ def net_connect():
 		
 	f.close()
 	os.system("rm -f net.txt")
-		
-			
-#code for test run
-if net_connect():
-	print("internet working")
-else:
-	print("internet not working")	
-
+	
+#function to create web server
 def create_web_server():
 	if net_connect():
-		if mount_check():
+		#if mount_check():
 			yum_config()
 			yum_install('httpd')
 			print('Enabling web server will require root password. Enter below.\n')
@@ -100,4 +119,28 @@ def file_add():
 		inp=int(input())
 		if inp==1:
 			file_add()
+
+def get_ip():
+	hostname=socket.gethostname()
+	IP=socket.gethostbyname(hostname)
+	return IP
+
+def personalised_link():
+	print("")
+	print("Enter file name: ",end="")
+	web=input()
+	IP=get_ip()
+	os.system("curl http://{}/{}".format(IP,web))
+	while True:
+		print("\nDo you wish to see more web files?(yes/no): ",end='')
+		ch=input()
+		if ch=='yes':
+			personalised_link()
+		elif ch=='no':
+			home_screen()
+		else:
+			print("Invalid Input!!Try again")
 			
+				
+# driver code for testing dont add any functions below this add above this comment
+home_screen()
