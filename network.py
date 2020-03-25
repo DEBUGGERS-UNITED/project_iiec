@@ -3,6 +3,7 @@ import os
 import os.path
 import socket
 import menu as men
+import essentials
 
 #function to check internet connection
 #this function stores the output of ping cmd in a file net.txt and if the ouput is a single line then no interent and if more than one line then internet is working. The fuction returns a boolean that is True if net is working and False if not working.
@@ -24,12 +25,14 @@ def net_connect():
 	
 #function to create web server
 def create_web_server():
-	print('Require root access for configuring yum')
+	essentials.check_or_switch()
+	#print('Require root access for configuring yum')
 	fp.yum_config()
-	print('Require root access for installing httpd')
+	#print('Require root access for installing httpd')
 	fp.yum_install('httpd')
-	print('Enabling web server will require root password. Sorry for troubling again and again.\n')
-	os.system('su -c "systemctl enable httpd"')
+	#print('Enabling web server will require root password. Sorry for troubling again and again.\n')
+	#os.system('su -c "systemctl enable httpd"')
+	os.system("systemctl enable httpd")
 	file_add()
 	print("Web server configured successfully at port 80\n")
 	take1 = input('Do you want to check your website?(y/n)')
