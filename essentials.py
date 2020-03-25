@@ -16,4 +16,4 @@ def check_or_switch():
 		print("Please enter password for root account to enable configuration=")
 		os.system("su")
 	os.system("rm -f user.txt")
-check_or_switch()
+
