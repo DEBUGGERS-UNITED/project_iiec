@@ -75,7 +75,7 @@ def file_add():
 	else:
 		os.system("cp {} /var/www/html/".format(web))
 		print("File added successfully!!")
-		print("Do you wish to add more files:If yes,enter 1 else enter 0 to go back to home screen: ",end='')
+		print("Do you wish to add more files:If yes,enter 1 else enter 0 to continue: ",end='')
 		inp=int(input())
 		if inp==1:
 			file_add()

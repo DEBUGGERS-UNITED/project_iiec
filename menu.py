@@ -3,6 +3,7 @@ import os.path
 import socket
 import sys
 import network as net
+import file_package as fp
 
 def default():
 	os.system("clear")
@@ -57,7 +58,7 @@ def network():
 		net.create_web_server()
 		home_screen()
 	elif ch==2:
-		file_add()
+		net.file_add()
 		net.personalised_link()
 		home_screen()
 	elif ch==3:
