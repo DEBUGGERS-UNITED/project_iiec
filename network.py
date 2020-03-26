@@ -41,9 +41,15 @@ def create_web_server():
 
 #function to get ip address of host system
 def get_ip():
-	hostname=socket.gethostname()
-	ip_addr=socket.gethostbyname(hostname)
-	return ip_addr
+	#hostname=socket.gethostname()
+	#ip_addr=socket.gethostbyname(hostname)
+	#return ip_addr
+	os.system("hostname -I > check.txt")
+	f = open("check.txt","r")
+	s = f.read().split(' ')
+	f.close()
+	return s[0]
+
 
 #function to open we page using curl command
 def personalised_link():
