@@ -42,6 +42,7 @@ PRESS 5: OTHER SERVICES\t\t\tPRESS 0: EXIT""")
 		sys.exit()
 	else:
 		print("INVALID CHOICE!! TRY AGAIN!!")
+		input("\nPRESS ENTER TO CONTINUE......")
 		home_screen()
 
 def network():
@@ -75,6 +76,6 @@ def network():
 			print("Invalid Choice!!Try Again")
 			print("\nPress y to continue: ",end="")
 			x=input()
-			if x=='y':
+			if x=='y'or x=='Y':
 				network()
 				

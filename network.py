@@ -56,8 +56,13 @@ def personalised_link():
 	print("")
 	print("Enter file name of your webpage: ",end="")
 	web=input()
-	ip_add=get_ip()
-	os.system("curl http://{}/{}".format(ip_add,web))
+	val=os.path.isfile("/var/www/html/{}".format(web))
+	if val==True:
+		ip_add=get_ip()
+		os.system("curl http://{}/{}".format(ip_add,web))
+	elif val==False:
+		print("File name not found!! Try Again")
+		personalised_link()
 	while True:
 		print("\nDo you wish to see more web files?(yes/no): ",end='')
 		ch=input()
@@ -81,9 +86,15 @@ def file_add():
 	else:
 		os.system("cp {} /var/www/html/".format(web))
 		print("File added successfully!!")
-		print("Do you wish to add more files:If yes,enter 1 else enter 0 to continue: ",end='')
-		inp=int(input())
-		if inp==1:
-			file_add()
+		print("Do you wish to add more file(y/n): ",end='')
+		inp=input()
+		while True:
+			if inp=='y' or inp=='Y':
+				file_add()
+			elif inp=='n' or inp=='N':
+				personalised_link()
+			else:
+				print("Invalid Input, Try Again!!")
+				input("press enter to continue....")
 
 			
