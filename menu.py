@@ -4,6 +4,22 @@ import socket
 import sys
 import network as net
 import file_package as fp
+import getpass
+
+flag=0
+while flag>=0:
+	passwd=getpass.getpass("Enter your password=")
+	apass="debug"
+	if passwd!=apass:
+		flag=flag+1
+		if flag==4:
+			print("Too many tries..")
+			exit()
+		else:
+			print("Wrong password!!Try again")
+	else:
+		print("Correct password")
+		break
 
 def default():
 	os.system("clear")
