@@ -68,7 +68,7 @@ def network():
 	print("\t----------------")
 	os.system("tput setaf 7")
 	print("")
-	print("PRESS 1: Create new web server\t\t\tPRESS 2: Configure existing web server\nPRESS 3: To see IP\t\t\t\tPRESS 4: To go back to home screen")
+	print("PRESS 1: Create new web server\t\t\tPRESS 2: Configure existing web server\nPRESS 3: To see IP\t\t\t\tPRESS 4: To use SSH services\nPRESS 0: To go back to home screen")
 	print("\nEnter Choice: ",end='')
 	ch=int(input())
 	if ch==1:
@@ -86,6 +86,9 @@ def network():
 			if ch2=='y' or ch2=='Y':
 				network()
 	elif ch==4:
+		ssh_menu()
+
+	elif ch==0:
 		home_screen()
 	else:
 		while True:
@@ -94,4 +97,38 @@ def network():
 			x=input()
 			if x=='y'or x=='Y':
 				network()
+def ssh_menu():
+	default()
+	print()
+	os.system("tput setaf 5")
+	print("\t\tSSH SERVICES")
+	print("\t\t------------")
+	os.system("tput setaf 7")
+	print("PRESS 1: Create new ssh server\t\t\tPRESS 2: To run ssh command\nPRESS 3: To upload file\t\t\t\tPRESS 4: To download file\nPRESS 0: To go back to previous menu")
+	print("\nEnter choice: ",end='')
+	ch=int(input())
+	if ch==1:
+		net.create_ssh_server()
+		home_screen()
+	elif ch==2:
+		net.run_ssh_command()
+		home_screen()
+	elif ch==3:
+		net.upload_file()
+		print("File uploaded successfuly")
+		input("Press enter to continue....")
+		ssh_menu()
+	elif ch==4:
+		net.download_file()
+
+	elif ch==0:
+		network()
+	else:
+		while True:
+			print("Invalid Choice!!Try Again")
+			print("\nPress y to continue: ",end="")
+			x=input()
+			if x=='y'or x=='Y':
+				ssh_menu()
+	
 				

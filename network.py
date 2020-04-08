@@ -93,8 +93,32 @@ def file_add():
 				file_add()
 			elif inp=='n' or inp=='N':
 				personalised_link()
+
 			else:
 				print("Invalid Input, Try Again!!")
 				input("press enter to continue....")
+
+#functions for ssh server
+def create_ssh_server():
+    fp.yum_config()
+    fp.yum_install('sshd')
+
+def run_ssh_command():
+    ip = input('Enter the ip of the remote system: ')
+    command = input('Enter the command to perform: ')
+    os.system('ssh {} {}'.format(ip,command))
+
+def upload_file():
+    ip = input('Enter the ip of the remote system: ')
+    location = input('Enter the location where you want to upload the file')
+    filename = input('Enter the file name on your system: ')
+    os.system('scp {} {}{}'.format(filename,ip,location))
+
+def download_file():
+    ip = input('Enter the ip of the remote system: ')
+    mylocation = input('Enter the location where you want to download the file: ')
+    remloc = input('Enter the location of file that you want to download: ')
+    os.system('scp -r {}{} {}'.format(ip,remloc,mylocation))
+
 
 			

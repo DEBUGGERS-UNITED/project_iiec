@@ -1,10 +1,7 @@
 Repository 'docker' is missing name in configuration, using id.
 Repository 'repo1' is missing name in configuration, using id.
 Repository 'repo2' is missing name in configuration, using id.
-Rerepo1                                           3.1 MB/s | 3.2 kB     00:00    
-repo2                                           2.7 MB/s | 2.7 kB     00:00    
-repo3                                           1.9 kB/s | 3.5 kB     00:01    
-Package httpd-2.4.37-10.module+el8+2764+7127e69e.x86_64 is already installed.
-Dependencies resolved.
-Nothing to do.
-Complete!
+Rerepo1                                           3.1 MB/s | 3.Error: Unable to find a match
+                                     2.7 MB/s | 2.7 kB     00:00    
+repo3                                           2.9 kB/s | 3.5 kB     00:01    
+No match for argument: sshd
