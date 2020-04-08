@@ -104,6 +104,12 @@ def create_ssh_server():
     fp.yum_install('sshd')
 
 def run_ssh_command():
+    print("The following is your current sshd status.Press q to exit")
+    os.system("systemctl status sshd")
+    ss=int(input("If sshd is dead or inactive press 1 to activate and if active press any other button and then the enter key"))
+    if ss==1:
+	os.system("systemctl start sshd")
+	print("sshd started successfully!!")
     ip = input('Enter the ip of the remote system: ')
     command = input('Enter the command to perform: ')
     os.system('ssh {} {}'.format(ip,command))
